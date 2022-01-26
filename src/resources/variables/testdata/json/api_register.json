@@ -1,0 +1,13 @@
+{
+    "customer.firstName":"mercury a",
+    "customer.lastName":"mercury a",
+    "customer.address.street":"123 mercury",
+    "customer.address.city":"manila",
+    "customer.address.state":"manila",
+    "customer.address.zipCode":"1230",
+    "customer.phoneNumber":"01234689",
+    "customer.ssn":"1414",
+    "customer.username":"mercurrymercurry",
+    "customer.password":"mercurrymercurry",
+    "repeatedPassword":"mercurrymercurry",
+    }

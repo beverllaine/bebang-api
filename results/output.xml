@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.10.1 on win32)" generated="20220126 14:39:00.135" rpa="false" schemaversion="2">
+<suite id="s1" name="Post Request" source="C:\Users\Administrator\bebang-api\src\api\post_request.robot">
+<test id="s1-t1" name="Customer Registers To Parabank">
+<kw name="Log" library="BuiltIn">
+<arg>e</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220126 14:39:00.193" level="INFO">e</msg>
+<status status="PASS" starttime="20220126 14:39:00.193" endtime="20220126 14:39:00.194"/>
+</kw>
+<status status="PASS" starttime="20220126 14:39:00.193" endtime="20220126 14:39:00.194"/>
+</test>
+<status status="PASS" starttime="20220126 14:39:00.137" endtime="20220126 14:39:00.196"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Post Request">Post Request</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220126 14:39:00.183" level="ERROR">Error in file 'C:\Users\Administrator\bebang-api\src\api\post_request.robot' on line 3: Resource file 'C:\Users\Administrator\bebang-api\src\api' does not exist.</msg>
+<msg timestamp="20220126 14:39:00.190" level="ERROR">Error in file 'C:\Users\Administrator\bebang-api\src\api\post_request.robot' on line 5: Resource file '..\resources\variables\testdata\json\*' does not exist.</msg>
+</errors>
+</robot>

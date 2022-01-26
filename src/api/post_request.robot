@@ -1,6 +1,8 @@
 ** Settings **
 Resource    ${CURDIR}${/}..\\..\\common\\global_file_path.robot
-Resource    ${CURDIR}${/}..\\..\\src\\resources
+Resource    ${CURDIR}
+Resource    ..\\resources\\keywords\\api_register_keywords.robot
+Resource    ..\\resources\\variables\\testdata\\json\\*
 #Suite Setup    Generate TestData For Registration
 
 ** Test Cases **
