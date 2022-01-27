@@ -1,5 +1,6 @@
 {
-    "financing_amount":"less_than_100k",
-    "financing_period":"immediately",
+    "financing_amount":"more_than_10M",
+    "financing_period":"future",
+    "step":"step_2",
     "token":"2daf3d77da505ad879e3f67fe69560ca8695e16c3ef394aeb43fc34251d2f9a5443c570781b92944cd111b6f17aa36bef81063a6eaa3039a62bb276446a54c4e1"
 }
