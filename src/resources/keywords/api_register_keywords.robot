@@ -57,6 +57,14 @@ Potential Customer Fills Out Prequalification "Step-3" Form With Valid Data
     ${response}    Output
     Integer    response status    200
 
+Potential Customer Fills Out Prequalification "Step-4" Form With Valid Data
+    ${json_file} =    load json from file    ${JSON_PATH_FILE}api_onboarding_qualification_step_4.json
+    ${json_file} =    update value to json    ${json_file}    $.token    ${fc_onboarding_cookie}
+    SET HEADERS    {"Referer": "https://${ENV_ONBOARDING_API}.onboarding.firstcircle.ph/"}
+    PATCH    https://${ENV_ONBOARDING_API}.api.onboarding.firstcircle.ph/leads/${g_ONBOARDING_API_ID}   ${json_file}
+    ${response}    Output
+    Integer    response status    200
+
 #============================
 #         THEN
 #============================
