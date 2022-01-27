@@ -1,6 +1,8 @@
 ** Settings **
 Library    SeleniumLibrary
-Library    RequestsLibrary
 Library    FakerLibrary
 Library    JSONLibrary
 Library    OperatingSystem
+Library    String
+Library    Process
+Library    REST    https://parabank.parasoft.com
