@@ -9,8 +9,9 @@ ${fc_onboarding_cookie}  2daf3d77da505ad879e3f67fe69560ca8695e16c3ef394aeb43fc34
 ${ENV_ONBOARDING_API}    mirror
 
 ** Keywords **
-
-
+#============================
+#         WHEN
+#============================
 Potential Customer Fills Out The Registration Form
     ${json_file} =    load json from file     ${JSON_PATH_FILE}api_register.json
     ${json_file} =    update value to json    ${json_file}    $.customer.firstName        ${g_FIRST_NAME}
@@ -29,7 +30,6 @@ Potential Customer Fills Out The Registration Form
     ${response}    Output
     Integer    response status    200
 
-
 Potential Customer Fills Out Prequalification "Step-1" Form With Valid Data
     ${json_file} =    load json from file    ${JSON_PATH_FILE}api_onboarding_qualification_step_1.json
     ${json_file} =    update value to json    ${json_file}    $.first_name    ${g_FIRST_NAME}
@@ -41,7 +41,36 @@ Potential Customer Fills Out Prequalification "Step-1" Form With Valid Data
     ${response}    Output
     Get Onboarding ID From Step 1 Response
 
-# Internal Keywords
+Potential Customer Fills Out Prequalification "Step-2" Form With Valid Data
+    ${json_file} =    load json from file    ${JSON_PATH_FILE}api_onboarding_qualification_step_2.json
+    ${json_file} =    update value to json    ${json_file}    $.token    ${fc_onboarding_cookie}
+    SET HEADERS    {"Referer": "https://${ENV_ONBOARDING_API}.onboarding.firstcircle.ph/"}
+    PATCH    https://${ENV_ONBOARDING_API}.api.onboarding.firstcircle.ph/leads/${g_ONBOARDING_API_ID}   ${json_file}
+    ${response}    Output
+    Integer    response status    200
+
+#============================
+#         THEN
+#============================
+New Record With Prequalification "Step-1" Details Should Be Saved
+    Integer    response status    201
+    ${expect_response_1} =    Expect Response    ${JSON_PATH_FILE}api_onboarding_qualification_default.json
+    ${expect_response_2} =    Expect Response    {"seconds":{"maximum":".001"}}
+    log    ${expect_response_1}
+    log    ${expect_response_2}
+    ${clear_ec} =    clear expectations
+
+Onboarding Prequalification Details Should Be Saved
+    Integer   response status    200
+    ${expect_response_1} =    Expect Response    ${JSON_PATH_FILE}api_onboarding_qualification_default.json
+    ${expect_response_2} =    Expect Response    {"seconds":{"maximum":".001"}}
+    log    ${expect_response_1}
+    log    ${expect_response_2}
+    ${clear_ec} =    clear expectations
+
+#============================
+#         INTERNAL KEYWORDS
+#============================
 Get SignUp Test Data
     ${first_name} =   FakerLibrary.First Name
     ${last_name} =   FakerLibrary.Last Name
