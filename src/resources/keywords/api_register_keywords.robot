@@ -31,7 +31,7 @@ Potential Customer Fills Out The Registration Form
 
 
 Potential Customer Fills Out Prequalification "Step-1" Form With Valid Data
-    ${json_file} =    load json from file    ${JSON_PATH_FILE}api_onboarding_qualification.json
+    ${json_file} =    load json from file    ${JSON_PATH_FILE}api_onboarding_qualification_step_1.json
     ${json_file} =    update value to json    ${json_file}    $.first_name    ${g_FIRST_NAME}
     ${json_file} =    update value to json    ${json_file}    $.mobile_number   ${g_PHONE_NUMBER}
     ${json_file} =    update value to json    ${json_file}    $.email_address   "email@f.com"
@@ -39,7 +39,7 @@ Potential Customer Fills Out Prequalification "Step-1" Form With Valid Data
     SET HEADERS    {"Referer": "https://${ENV_ONBOARDING_API}.onboarding.firstcircle.ph/"}
     POST    https://${ENV_ONBOARDING_API}.api.onboarding.firstcircle.ph/leads    ${json_file}
     ${response}    Output
-    Get Onboarding ID From Step 1 Response
+    #Get Onboarding ID From Step 1 Response
 
 # Internal Keywords
 Get SignUp Test Data
