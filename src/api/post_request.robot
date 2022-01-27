@@ -16,3 +16,8 @@ Customer Fills Out Onboarding Form - Step 2
     [Setup]    sleep    3s
     When Potential Customer Fills Out Prequalification "Step-2" Form With Valid Data
     Then Onboarding Prequalification Details Should Be Saved
+
+Customer Fills Out Onboarding Form - Step 3
+    [Setup]    sleep    3s
+    When Potential Customer Fills Out Prequalification "Step-3" Form With Valid Data
+    Then Onboarding Prequalification Details Should Be Saved
