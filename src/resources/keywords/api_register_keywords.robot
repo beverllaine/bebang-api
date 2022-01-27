@@ -39,7 +39,7 @@ Potential Customer Fills Out Prequalification "Step-1" Form With Valid Data
     SET HEADERS    {"Referer": "https://${ENV_ONBOARDING_API}.onboarding.firstcircle.ph/"}
     POST    https://${ENV_ONBOARDING_API}.api.onboarding.firstcircle.ph/leads    ${json_file}
     ${response}    Output
-    #Get Onboarding ID From Step 1 Response
+    Get Onboarding ID From Step 1 Response
 
 # Internal Keywords
 Get SignUp Test Data
@@ -69,3 +69,7 @@ Generate TestData For Registration
     set global variable    ${g_USER_NAME}    ${user_name}
     set global variable    ${g_PASSWORD}    ${password}
     set global variable    ${g_REPEAT_PASSWORD}    ${repeat_password}
+
+Get Onboarding ID From Step 1 Response
+    ${onboarding_api_id} =    Output    $.data.id
+    set global variable    ${g_ONBOARDING_API_ID}    ${onboarding_api_id}
